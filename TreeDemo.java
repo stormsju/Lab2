@@ -81,11 +81,23 @@ class BinarySearchTree{
 	    //traverse to the right
 	    preOrderTraversal(root.right);
 	}
-	/*
-	post-order traversal
-	*/
+	
+	/**
+	 * Method which performs postOrder node traversal. 
+	 * @param root Takes in a Node.
+	 */
 	public void postOrderTraversal(Node root){
-		//implement me
+		//base case
+	    if(root == null){
+	    	return;
+	    }
+	    
+	    //recursively traverse nodes: left > right > node
+	    //traverse to the left
+	    preOrderTraversal(root.left);
+	    //traverse to the right
+	    preOrderTraversal(root.right);
+	    System.out.print(root.value+" ");
 	}
 	/*
 	a method to find the node in the tree
