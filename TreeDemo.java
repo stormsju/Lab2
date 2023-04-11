@@ -10,11 +10,17 @@ class Node{
 	}
 }
 
+/**
+ * @author jstor and CS380 book materials
+ * Class which constructs a Binary Search Tree data structure which stores int key values.
+ */
 class BinarySearchTree{
 	Node root;
-	/*
-	recursive insert method
-	*/
+	
+	/**
+	 * Method which inserts a given key as a Node into the BST.
+	 * @param value Key which is to be inserted.
+	 */
 	public void insert(int value){
 		//if tree is empty
 		if(root == null){
@@ -123,9 +129,9 @@ class BinarySearchTree{
 	}
 	
 	/**
-	 * Method which finds the minimum node in the tree.
+	 * Method which finds the minimum key in the tree.
 	 * @param root Takes in a Node.
-	 * @return The key from the smallest Node in tree.
+	 * @return The key from the smallest key in tree.
 	 */
 	public int getMin(Node root){
 		//base case: left-most node found
@@ -136,17 +142,27 @@ class BinarySearchTree{
 		//continue traversal until found
 		return getMin(root.left);
 	}
-	/*
-	a method to find the node in the tree
-	with a largest key
-	*/
+	/**
+	 * Method which finds the maximum key in the tree.
+	 * @param root Takes in a Node.
+	 * @return The key from the largest key in tree.
+	 */
 	public int getMax(Node root){
-		//implement me
+		//base case: right-most node found
+		if (root.right == null) {
+			return root.value;
+		}
+		
+		//continue traversal until found
+		return getMin(root.right);
 	}
-	/*
-	this method will not compile until getMax
-	is implemented
-	*/
+	
+	/**
+	 * Method which deletes a key from the BST by removing the Node it is stored in.
+	 * @param root Node to begin search.
+	 * @param key Key to be removed.
+	 * @return the node which was deleted.
+	 */
 	public Node delete(Node root, int key){
 		if(root == null){
 			return root;
@@ -175,7 +191,15 @@ class BinarySearchTree{
 	}
 }
 
+/**
+ * @author jstor and CS380 book materials
+ * Class Which runs a demonstration of the BST class.
+ */
 public class TreeDemo{
+	/**
+	 * Test/Driver code for the class. Builds a BST and inserts Nodes into it, then performs in-order traversal.
+	 * @param args Test demonstrations of this BST class.
+	 */
 	public static void main(String[] args){
 		BinarySearchTree t1 = new BinarySearchTree();
 		t1.insert(24);
