@@ -64,11 +64,22 @@ class BinarySearchTree{
 	    //traverse to the right
 	    preOrderTraversal(root.right);
 	}
-	/*
-	in-order traversal
-	*/
+	/**
+	 * Method which performs inOrder node traversal. 
+	 * @param root Takes in a Node.
+	 */
 	public void inOrderTraversal(Node root){
-		//implement me
+		//base case
+	    if(root == null){
+	    	return;
+	    }
+	    
+	    //recursively traverse nodes: left > node > right
+	    //traverse to the left
+	    preOrderTraversal(root.left);
+	    System.out.print(root.value+" ");
+	    //traverse to the right
+	    preOrderTraversal(root.right);
 	}
 	/*
 	post-order traversal
