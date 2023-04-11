@@ -99,12 +99,27 @@ class BinarySearchTree{
 	    preOrderTraversal(root.right);
 	    System.out.print(root.value+" ");
 	}
-	/*
-	a method to find the node in the tree
-	with a specific value
-	*/
+	
+	/**
+	 * Method whichs find a node in the tree given the passed key value.
+	 * @param root Takes in a node.
+	 * @param key Value to be found in tree.
+	 * @return True if node with key is found, otherwise returns false.
+	 */
 	public boolean find(Node root, int key){
-		//implement me
+		//base case 1: key not found
+		if (root == null) {
+			return false;
+		}
+		
+		//base case 2: key found
+		if(root.value == key) {
+			return true;
+		} else if (root.value < key) { //traverse left if key smaller than value
+			return find(root.left, key);
+		} else { //traverse right if key larger than value
+			return find(root.right, key);
+		}
 	}
 	/*
 	a method to find the node in the tree
