@@ -101,7 +101,7 @@ class BinarySearchTree{
 	}
 	
 	/**
-	 * Method whichs find a node in the tree given the passed key value.
+	 * Method which finds a node in the tree given the passed key value.
 	 * @param root Takes in a node.
 	 * @param key Value to be found in tree.
 	 * @return True if node with key is found, otherwise returns false.
@@ -121,12 +121,20 @@ class BinarySearchTree{
 			return find(root.right, key);
 		}
 	}
-	/*
-	a method to find the node in the tree
-	with a smallest key
-	*/
+	
+	/**
+	 * Method which finds the minimum node in the tree.
+	 * @param root Takes in a Node.
+	 * @return The key from the smallest Node in tree.
+	 */
 	public int getMin(Node root){
-		//implement me
+		//base case: left-most node found
+		if (root.left == null) {
+			return root.value;
+		}
+		
+		//continue traversal until found
+		return getMin(root.left);
 	}
 	/*
 	a method to find the node in the tree
